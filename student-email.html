@@ -6,39 +6,51 @@
 <title>Carly Chery — Correo</title>
 <style>
   body{margin:0;padding:0;background:#ffffff;}
+  /* Mobile — Gmail app, Apple Mail, Outlook app all honour this */
+  @media only screen and (max-width:480px){
+    .em-wrap{width:100%!important;max-width:100%!important;}
+    .em-hdr{padding:28px 22px 24px!important;}
+    .em-pad{padding-left:22px!important;padding-right:22px!important;}
+    .em-h1{font-size:21px!important;}
+    .em-badge{display:none!important;}
+    .em-cta-text{padding-right:0!important;display:block!important;width:100%!important;}
+    .em-cta-btn{display:block!important;width:100%!important;text-align:center!important;padding-top:16px!important;}
+    .em-cta-btn a{display:block!important;text-align:center!important;}
+    .em-footer-right{display:none!important;}
+  }
 </style>
 </head>
 <body>
 
 <!--[if mso]><center><table width="640" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
-<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;max-width:640px;margin:0 auto;">
+<table class="em-wrap" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;max-width:640px;margin:0 auto;">
 
   <!-- ── HEADER ── -->
   <tr>
-    <td style="background:#0C0D0F;padding:44px 48px 36px;border-radius:12px 12px 0 0;">
+    <td class="em-hdr" style="background:#0C0D0F;padding:44px 48px 36px;border-radius:12px 12px 0 0;">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td>
             <p style="margin:0 0 4px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.3);">Desarrollador Independiente</p>
-            <h1 style="margin:0 0 6px;font-family:Georgia,'Times New Roman',serif;font-size:26px;font-weight:400;color:#FFFFFF;letter-spacing:-0.02em;line-height:1.1;">Carly Chery</h1>
+            <h1 class="em-h1" style="margin:0 0 6px;font-family:Georgia,'Times New Roman',serif;font-size:26px;font-weight:400;color:#FFFFFF;letter-spacing:-0.02em;line-height:1.1;">Carly Chery</h1>
             <p style="margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:11.5px;color:rgba(255,255,255,0.38);letter-spacing:0.04em;">Ingeniero Agrícola &nbsp;&middot;&nbsp; Especialista en SIG &nbsp;&middot;&nbsp; Desarrollador de Software</p>
           </td>
-          <td width="48" align="right" valign="middle">
-            <!-- Verified badge icon -->
+          <td class="em-badge" width="48" align="right" valign="middle">
             <div style="width:40px;height:40px;border-radius:50%;background:rgba(13,107,63,0.15);border:1px solid rgba(13,107,63,0.3);display:inline-block;text-align:center;line-height:40px;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0D6B3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-top:11px;"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
           </td>
         </tr>
       </table>
-      <!-- Accent line -->
-      <div style="margin-top:28px;height:1px;background:linear-gradient(90deg,#0D6B3F,rgba(13,107,63,0));"></div>
+      <!-- Accent line — solid fallback for Outlook, gradient for modern clients -->
+      <!--[if mso]><div style="margin-top:28px;height:1px;background:#0D6B3F;"></div><![endif]-->
+      <!--[if !mso]><!--><div style="margin-top:28px;height:1px;background:linear-gradient(90deg,#0D6B3F,rgba(13,107,63,0));"></div><!--<![endif]-->
     </td>
   </tr>
 
   <!-- ── INTRO ── -->
   <tr>
-    <td style="background:#FFFFFF;padding:36px 48px 28px;">
+    <td class="em-pad" style="background:#FFFFFF;padding:36px 48px 28px;">
       <p style="margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:14.5px;color:#0C0D0F;line-height:1;">Estimado/a colega,</p>
       <p style="margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:14px;color:#3D404B;line-height:1.85;">
         Me comunico contigo como compañero estudiante de la Universidad EARTH para compartirte un servicio profesional que creo puede aportarte un valor real — especialmente al acercarte a tu último año y comenzar a construir tu identidad profesional.
@@ -51,7 +63,7 @@
 
   <!-- ── SECTION LABEL: SERVICES ── -->
   <tr>
-    <td style="background:#FFFFFF;padding:4px 48px 0;">
+    <td class="em-pad" style="background:#FFFFFF;padding:4px 48px 0;">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td style="border-top:1px solid #ECEEF3;padding-top:24px;">
@@ -62,9 +74,9 @@
     </td>
   </tr>
 
-  <!-- ── SERVICE 1: Portfolio Website ── -->
+  <!-- ── SERVICE 1 ── -->
   <tr>
-    <td style="background:#FFFFFF;padding:0 48px;">
+    <td class="em-pad" style="background:#FFFFFF;padding:0 48px;">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td width="40" valign="top" style="padding:0 16px 20px 0;">
@@ -81,9 +93,9 @@
     </td>
   </tr>
 
-  <!-- ── SERVICE 2: Mobile Apps ── -->
+  <!-- ── SERVICE 2 ── -->
   <tr>
-    <td style="background:#FFFFFF;padding:20px 48px 0;">
+    <td class="em-pad" style="background:#FFFFFF;padding:20px 48px 0;">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td width="40" valign="top" style="padding:0 16px 20px 0;">
@@ -100,9 +112,9 @@
     </td>
   </tr>
 
-  <!-- ── SERVICE 3: Desktop Software ── -->
+  <!-- ── SERVICE 3 ── -->
   <tr>
-    <td style="background:#FFFFFF;padding:20px 48px 0;">
+    <td class="em-pad" style="background:#FFFFFF;padding:20px 48px 0;">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td width="40" valign="top" style="padding:0 16px 20px 0;">
@@ -119,9 +131,9 @@
     </td>
   </tr>
 
-  <!-- ── SERVICE 4: Web Applications ── -->
+  <!-- ── SERVICE 4 ── -->
   <tr>
-    <td style="background:#FFFFFF;padding:20px 48px 28px;">
+    <td class="em-pad" style="background:#FFFFFF;padding:20px 48px 28px;">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td width="40" valign="top" style="padding:0 16px 0 0;">
@@ -140,14 +152,14 @@
 
   <!-- ── SECTION LABEL: PROOF ── -->
   <tr>
-    <td style="background:#F7F8FB;padding:28px 48px 0;border-top:1px solid #ECEEF3;">
+    <td class="em-pad" style="background:#F7F8FB;padding:28px 48px 0;border-top:1px solid #ECEEF3;">
       <p style="margin:0 0 20px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#0D6B3F;">Proyectos Activos y Experiencia Comprobada</p>
     </td>
   </tr>
 
   <!-- ── PROJECT 1 ── -->
   <tr>
-    <td style="background:#F7F8FB;padding:0 48px;">
+    <td class="em-pad" style="background:#F7F8FB;padding:0 48px;">
       <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FFFFFF;border:1px solid #E8EAF0;border-radius:8px;margin-bottom:10px;">
         <tr>
           <td style="padding:18px 20px;">
@@ -170,7 +182,7 @@
 
   <!-- ── PROJECT 2 ── -->
   <tr>
-    <td style="background:#F7F8FB;padding:0 48px;">
+    <td class="em-pad" style="background:#F7F8FB;padding:0 48px;">
       <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FFFFFF;border:1px solid #E8EAF0;border-radius:8px;margin-bottom:10px;">
         <tr>
           <td style="padding:18px 20px;">
@@ -193,7 +205,7 @@
 
   <!-- ── PROJECT 3 ── -->
   <tr>
-    <td style="background:#F7F8FB;padding:0 48px;">
+    <td class="em-pad" style="background:#F7F8FB;padding:0 48px;">
       <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FFFFFF;border:1px solid #E8EAF0;border-radius:8px;margin-bottom:10px;">
         <tr>
           <td style="padding:18px 20px;">
@@ -216,7 +228,7 @@
 
   <!-- ── PROJECT 4 ── -->
   <tr>
-    <td style="background:#F7F8FB;padding:0 48px 28px;">
+    <td class="em-pad" style="background:#F7F8FB;padding:0 48px 28px;">
       <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FFFFFF;border:1px solid #E8EAF0;border-radius:8px;">
         <tr>
           <td style="padding:18px 20px;">
@@ -239,15 +251,15 @@
 
   <!-- ── CTA BLOCK ── -->
   <tr>
-    <td style="background:#0C0D0F;padding:36px 48px;">
+    <td class="em-pad" style="background:#0C0D0F;padding:36px 48px;">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td style="padding-right:24px;">
+          <td class="em-cta-text" valign="middle" style="padding-right:24px;">
             <p style="margin:0 0 6px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);">Siguiente paso</p>
             <p style="margin:0 0 8px;font-family:Georgia,'Times New Roman',serif;font-size:19px;font-weight:400;color:#FFFFFF;letter-spacing:-0.02em;line-height:1.3;">¿Interesado/a? Hablemos.</p>
             <p style="margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:12.5px;color:rgba(255,255,255,0.45);line-height:1.7;">Precios accesibles para estudiantes. Sin compromiso. Simplemente responde a este correo y agendaremos una breve conversación para hablar de tu proyecto y presupuesto.</p>
           </td>
-          <td width="160" align="right" valign="middle">
+          <td class="em-cta-btn" width="160" align="right" valign="middle">
             <a href="mailto:cchery@earth.ac.cr?subject=Inter%C3%A9s%20en%20tus%20servicios%20de%20desarrollo" style="display:inline-block;background:#0D6B3F;color:#FFFFFF;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:12.5px;font-weight:600;padding:13px 22px;border-radius:7px;letter-spacing:-0.01em;white-space:nowrap;">Contáctame &rarr;</a>
           </td>
         </tr>
@@ -257,30 +269,31 @@
 
   <!-- ── FOOTER ── -->
   <tr>
-    <td style="background:#FFFFFF;padding:24px 48px;border-radius:0 0 12px 12px;border-top:1px solid #ECEEF3;">
+    <td class="em-pad" style="background:#FFFFFF;padding:24px 48px;border-radius:0 0 12px 12px;border-top:1px solid #ECEEF3;">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td>
             <p style="margin:0 0 2px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:12.5px;font-weight:600;color:#0C0D0F;">Carly Chery</p>
             <p style="margin:0 0 10px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:11.5px;color:#9297A8;">Ingeniero Agrícola &nbsp;&middot;&nbsp; Desarrollador de Software &nbsp;&middot;&nbsp; Universidad EARTH</p>
-            <table cellpadding="0" cellspacing="0" border="0">
+            <table cellpadding="0" cellspacing="4" border="0">
               <tr>
-                <td style="padding-right:16px;">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9297A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                  <a href="mailto:cchery@earth.ac.cr" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:11.5px;color:#0D6B3F;text-decoration:none;vertical-align:middle;">cchery@earth.ac.cr</a>
+                <td style="padding-right:12px;white-space:nowrap;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9297A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:cchery@earth.ac.cr" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:11.5px;color:#0D6B3F;text-decoration:none;vertical-align:middle;">cchery@earth.ac.cr</a>
                 </td>
-                <td style="padding-right:16px;">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9297A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.82 19a19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  <a href="tel:+50683014323" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:11.5px;color:#0D6B3F;text-decoration:none;vertical-align:middle;">+506 8301-4323</a>
+              </tr>
+              <tr>
+                <td style="padding-right:12px;white-space:nowrap;padding-top:4px;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9297A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.82 19a19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+50683014323" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:11.5px;color:#0D6B3F;text-decoration:none;vertical-align:middle;">+506 8301-4323</a>
                 </td>
-                <td>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9297A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <span style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:11.5px;color:#9297A8;vertical-align:middle;">Costa Rica</span>
+              </tr>
+              <tr>
+                <td style="padding-top:4px;white-space:nowrap;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9297A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:5px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:11.5px;color:#9297A8;vertical-align:middle;">Costa Rica</span>
                 </td>
               </tr>
             </table>
           </td>
-          <td width="100" align="right" valign="bottom">
+          <td class="em-footer-right" width="100" align="right" valign="bottom">
             <p style="margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:10px;color:#C5C8D3;letter-spacing:0.02em;">2026 &nbsp;&middot;&nbsp; Confidencial</p>
           </td>
         </tr>
