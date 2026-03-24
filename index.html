@@ -1158,7 +1158,7 @@ footer{
       </div>
       <p class="map-meta">EARTH University · Guácimo, Limón, Costa Rica. A hub for sustainable agriculture and environmental sciences in Latin America.</p>
     </div>
-    <div class="map-wrap reveal reveal-delay-1" id="map"></div>
+    <div class="map-wrap" id="map"></div>
   </div>
 </section>
 
@@ -1324,6 +1324,8 @@ const i18n = {
     // Enable scroll on click
     map.on('click', () => map.scrollWheelZoom.enable());
     map.on('mouseout', () => map.scrollWheelZoom.disable());
+    // Force tile render after container is fully visible
+    setTimeout(() => map.invalidateSize(), 300);
   };
   document.head.appendChild(script);
 })();
