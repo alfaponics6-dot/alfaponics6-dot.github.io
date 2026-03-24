@@ -158,11 +158,54 @@ nav.scrolled{border-bottom-color:var(--border);background:rgba(255,255,255,.97)}
 section{position:relative}
 
 /* ─── REVEAL ─── */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity var(--t-slow),transform var(--t-slow)}
-.reveal.visible{opacity:1;transform:none}
-.reveal-delay-1{transition-delay:.08s}
-.reveal-delay-2{transition-delay:.16s}
-.reveal-delay-3{transition-delay:.24s}
+.reveal{
+  opacity:0;transform:translateY(32px);filter:blur(7px);
+  transition:opacity .75s var(--ease),transform .75s var(--ease),filter .65s var(--ease);
+}
+.reveal.visible{opacity:1;transform:none;filter:blur(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* ─── EYEBROW LINE DRAW ─── */
+.eyebrow::before{width:0;transition:width .6s var(--ease) .35s}
+.eyebrow.visible::before{width:18px}
+.hero-eyebrow::before{width:0;transition:width .7s var(--ease) .55s}
+.hero-eyebrow.visible::before{width:22px}
+
+/* ─── FLOAT ─── */
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-9px)}
+}
+.hero-float-card{animation:float 5s ease-in-out infinite}
+.about-experience{animation:float 6s ease-in-out 1.2s infinite}
+
+/* ─── PAGE LOAD ─── */
+@keyframes pageIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+body{animation:pageIn .55s var(--ease) forwards}
+
+/* ─── SPOTLIGHT ─── */
+.spotlight{
+  position:fixed;width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(13,107,63,.055) 0%,transparent 65%);
+  pointer-events:none;z-index:0;will-change:transform;top:0;left:0;
+}
+@media(max-width:960px){.spotlight{display:none}}
+
+/* ─── STAGGER: GALLERY ─── */
+.gallery-slot:nth-child(1){transition-delay:.04s}
+.gallery-slot:nth-child(2){transition-delay:.11s}
+.gallery-slot:nth-child(3){transition-delay:.18s}
+.gallery-slot:nth-child(4){transition-delay:.25s}
+.gallery-slot:nth-child(5){transition-delay:.32s}
+.gallery-slot:nth-child(6){transition-delay:.39s}
+
+/* ─── STAGGER: SERVICES ─── */
+.srv-card:nth-child(1){transition-delay:.04s}
+.srv-card:nth-child(2){transition-delay:.12s}
+.srv-card:nth-child(3){transition-delay:.20s}
+.srv-card:nth-child(4){transition-delay:.28s}
 
 /* ─── HERO ─── */
 .hero{
@@ -1190,6 +1233,29 @@ const i18n = {
 // Always scroll to top on page load/refresh
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 window.scrollTo(0, 0);
+
+// Mouse spotlight (desktop only)
+if (window.innerWidth > 960) {
+  const spot = document.createElement('div');
+  spot.className = 'spotlight';
+  document.body.prepend(spot);
+  let mx = window.innerWidth / 2, my = window.innerHeight / 2, sx = mx, sy = my;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+  (function raf() {
+    sx += (mx - sx) * 0.07;
+    sy += (my - sy) * 0.07;
+    spot.style.transform = `translate(${sx - 260}px,${sy - 260}px)`;
+    requestAnimationFrame(raf);
+  })();
+}
+
+// Hero photo parallax
+const heroImg = document.querySelector('.hero-photo img');
+window.addEventListener('scroll', () => {
+  if (heroImg && scrollY < window.innerHeight * 1.2) {
+    heroImg.style.transform = `translateY(${scrollY * 0.12}px)`;
+  }
+}, { passive: true });
 
 let currentLang = 'en';
 
