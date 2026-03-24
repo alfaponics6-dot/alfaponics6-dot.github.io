@@ -562,22 +562,6 @@ footer{
 #loader-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),#4ADE80);transition:width .8s var(--ease)}
 @keyframes ldIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-/* ─── CUSTOM CURSOR ─── */
-.cur-dot{
-  position:fixed;width:8px;height:8px;border-radius:50%;
-  background:var(--ink);pointer-events:none;z-index:9998;
-  transform:translate(-50%,-50%);
-  transition:background .2s ease,width .2s ease,height .2s ease;
-}
-.cur-ring{
-  position:fixed;width:38px;height:38px;border-radius:50%;
-  border:1.5px solid rgba(12,13,15,.22);pointer-events:none;z-index:9997;
-  transform:translate(-50%,-50%);
-  transition:border-color .25s ease,transform .3s var(--ease);
-}
-.cur-ring.hover{border-color:var(--accent);transform:translate(-50%,-50%) scale(1.7)}
-.cur-dot.hover{background:var(--accent);width:10px;height:10px}
-@media(max-width:960px){.cur-dot,.cur-ring{display:none}}
 
 /* ─── SCROLL PROGRESS ─── */
 .scroll-bar{
@@ -1307,31 +1291,6 @@ const i18n = {
   setTimeout(() => loader.classList.add('done'), 1200);
 })();
 
-// ── CUSTOM CURSOR (desktop only) ──
-if (window.innerWidth > 960 && !('ontouchstart' in window)) {
-  document.documentElement.style.cursor = 'none';
-  const dot = document.createElement('div'); dot.className = 'cur-dot';
-  const ring = document.createElement('div'); ring.className = 'cur-ring';
-  document.body.append(dot, ring);
-  let mx = -100, my = -100, rx = -100, ry = -100;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
-  document.addEventListener('mouseover', e => {
-    if (e.target.closest('a,button,.project,.gallery-slot,.value-card,.srv-card,.tag,.ptag')) {
-      dot.classList.add('hover'); ring.classList.add('hover');
-    }
-  });
-  document.addEventListener('mouseout', e => {
-    if (e.target.closest('a,button,.project,.gallery-slot,.value-card,.srv-card,.tag,.ptag')) {
-      dot.classList.remove('hover'); ring.classList.remove('hover');
-    }
-  });
-  (function raf() {
-    rx += (mx - rx) * 0.1; ry += (my - ry) * 0.1;
-    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    requestAnimationFrame(raf);
-  })();
-}
 
 // ── SCROLL PROGRESS + BACK TO TOP ──
 const scrollBar = document.createElement('div'); scrollBar.className = 'scroll-bar';
