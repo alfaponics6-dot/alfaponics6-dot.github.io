@@ -6,12 +6,36 @@
 <title>Vista previa de correo — Carly Chery</title>
 <style>
   body{margin:0;padding:48px 20px;background:#E8EAED;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif}
-  .preview-bar{text-align:center;margin-bottom:28px}
+  .preview-bar{text-align:center;margin-bottom:28px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
   .preview-bar span{display:inline-block;background:#fff;color:#666;font-size:11.5px;padding:7px 18px;border-radius:20px;border:1px solid #ddd;letter-spacing:0.02em}
+  #copy-btn{display:inline-flex;align-items:center;gap:7px;background:#0C0D0F;color:#fff;font-size:11.5px;font-weight:600;padding:7px 18px;border-radius:20px;border:none;cursor:pointer;letter-spacing:0.02em;transition:background .2s}
+  #copy-btn:hover{background:#0D6B3F}
+  #copy-btn.copied{background:#0D6B3F}
 </style>
 </head>
 <body>
-<div class="preview-bar"><span>Vista previa del correo — Abre en el navegador o copia el HTML en Outlook / Gmail</span></div>
+<div class="preview-bar">
+  <span>Vista previa del correo — Abre en el navegador o copia el HTML en Outlook / Gmail</span>
+  <button id="copy-btn" onclick="copyHTML()">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+    <span id="copy-label">Copiar HTML</span>
+  </button>
+</div>
+<script>
+function copyHTML(){
+  const tbl = document.querySelector('table[width="100%"]');
+  const mso = '<!--[if mso]><center><table width="640" cellpadding="0" cellspacing="0"><tr><td><![endif]-->\n';
+  const msoEnd = '\n<!--[if mso]></td></tr></table></center><![endif]-->';
+  const html = mso + tbl.outerHTML + msoEnd;
+  navigator.clipboard.writeText(html).then(()=>{
+    const btn = document.getElementById('copy-btn');
+    const lbl = document.getElementById('copy-label');
+    btn.classList.add('copied');
+    lbl.textContent = '¡Copiado!';
+    setTimeout(()=>{ btn.classList.remove('copied'); lbl.textContent='Copiar HTML'; }, 2200);
+  });
+}
+</script>
 
 <!--[if mso]><center><table width="640" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
 <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;max-width:640px;margin:0 auto;">
