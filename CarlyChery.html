@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Carly Chery — Agricultural Engineer & GIS Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0C0D0F;
+  --ink2:#1A1D24;
+  --ink3:#2A2E38;
+  --muted:#64697A;
+  --subtle:#8B90A0;
+  --border:#E2E4EA;
+  --border-light:#F0F1F4;
+  --surface:#F7F8FA;
+  --cream:#FAFBFC;
+  --white:#FFFFFF;
+  --accent:#0D6B3F;
+  --accent-light:#E8F5EE;
+  --accent-glow:#10B86140;
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --nav-h:72px;
+  --max:1140px;
+  --pad:clamp(1.5rem,5vw,4rem);
+}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h)}
+body{font-family:var(--sans);background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.65;overflow-x:hidden}
+::selection{background:var(--accent-light);color:var(--accent)}
+
+/* NAV */
+nav{
+  position:fixed;inset:0 0 auto;z-index:100;height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--pad);
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s,background .3s;
+}
+nav.scrolled{border-bottom-color:var(--border);background:rgba(255,255,255,0.95)}
+.logo{font-family:var(--serif);font-size:1.2rem;color:var(--ink);text-decoration:none;letter-spacing:-0.02em}
+.nav-links{display:flex;gap:2px}
+.nav-links a{
+  font-size:0.8rem;font-weight:400;color:var(--muted);
+  text-decoration:none;padding:7px 16px;border-radius:8px;
+  transition:color .2s,background .2s;letter-spacing:-0.01em;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--ink);background:var(--surface)}
+.nav-right{display:flex;align-items:center;gap:14px}
+.status-dot{display:flex;align-items:center;gap:7px;font-size:0.75rem;color:var(--muted);letter-spacing:-0.01em}
+.status-dot::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent-glow);animation:pulse 2.5s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.nav-cta{
+  background:var(--ink);color:var(--white);
+  font-size:0.78rem;font-weight:500;
+  padding:9px 20px;border-radius:8px;border:none;cursor:pointer;
+  text-decoration:none;letter-spacing:-0.01em;
+  transition:all .2s;
+}
+.nav-cta:hover{background:var(--ink2);transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+
+/* LAYOUT */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+section{position:relative}
+
+/* REVEAL ANIMATION */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* HERO */
+.hero{
+  padding:calc(var(--nav-h) + 5rem) 0 6rem;
+  min-height:100vh;display:flex;align-items:center;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,var(--accent-light) 0%,transparent 55%);
+}
+.hero-grid{
+  display:grid;grid-template-columns:1fr 400px;
+  gap:5rem;align-items:center;width:100%;
+}
+.hero-eyebrow{
+  font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:1.75rem;
+  display:flex;align-items:center;gap:10px;
+}
+.hero-eyebrow::before{content:'';width:20px;height:1.5px;background:var(--accent);border-radius:2px}
+.hero h1{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(2.8rem,6.5vw,5rem);
+  line-height:1.06;letter-spacing:-0.03em;color:var(--ink);
+}
+.hero h1 em{font-style:italic;color:var(--muted)}
+.hero-desc{font-size:0.95rem;color:var(--muted);line-height:1.85;max-width:480px;margin-top:1.75rem}
+.hero-actions{display:flex;gap:12px;margin-top:2.5rem;flex-wrap:wrap}
+.btn-primary{
+  background:var(--ink);color:#fff;
+  font-size:0.82rem;font-weight:500;padding:13px 26px;
+  border-radius:10px;text-decoration:none;border:none;cursor:pointer;
+  transition:all .25s;display:inline-flex;align-items:center;gap:8px;
+  letter-spacing:-0.01em;
+}
+.btn-primary:hover{background:var(--ink2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.btn-outline{
+  background:transparent;color:var(--ink);
+  font-size:0.82rem;font-weight:500;padding:13px 26px;
+  border-radius:10px;border:1.5px solid var(--border);text-decoration:none;cursor:pointer;
+  transition:all .25s;display:inline-flex;align-items:center;gap:8px;
+  letter-spacing:-0.01em;
+}
+.btn-outline:hover{border-color:var(--ink);background:var(--surface)}
+
+/* HERO PHOTO CARD */
+.hero-photo-card{position:relative}
+.hero-photo{
+  width:100%;aspect-ratio:3/4;border-radius:20px;overflow:hidden;
+  border:1px solid var(--border);
+  box-shadow:0 24px 64px rgba(0,0,0,.08),0 8px 20px rgba(0,0,0,.04);
+}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:top}
+.hero-float-card{
+  position:absolute;bottom:-24px;left:-24px;
+  background:var(--white);border:1px solid var(--border);
+  border-radius:14px;padding:18px 22px;
+  box-shadow:0 12px 40px rgba(0,0,0,.08);
+  display:flex;align-items:center;gap:14px;
+  backdrop-filter:blur(12px);
+}
+.hero-float-card .hfc-icon{
+  width:42px;height:42px;border-radius:10px;
+  background:var(--accent-light);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.hfc-label{font-size:0.7rem;color:var(--subtle);letter-spacing:0.04em;text-transform:uppercase;font-weight:500}
+.hfc-val{font-size:0.9rem;font-weight:600;color:var(--ink);margin-top:2px;letter-spacing:-0.02em}
+
+/* MARQUEE STRIP */
+.marquee-section{
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:1.25rem 0;overflow:hidden;
+  background:var(--cream);
+}
+.marquee-track{
+  display:flex;gap:3rem;animation:scroll 25s linear infinite;width:max-content;
+}
+.marquee-item{
+  font-family:var(--serif);font-size:1.1rem;color:var(--muted);
+  white-space:nowrap;display:flex;align-items:center;gap:12px;
+  letter-spacing:-0.01em;
+}
+.marquee-item::after{content:'·';color:var(--border);font-size:1.5rem}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ABOUT */
+.about{padding:7rem 0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.about-photo-wrap{position:relative}
+.about-photo{
+  width:100%;aspect-ratio:4/5;border-radius:16px;overflow:hidden;
+  border:1px solid var(--border);
+}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:top}
+.about-experience{
+  position:absolute;bottom:-16px;right:-16px;
+  background:var(--ink);color:var(--white);
+  border-radius:14px;padding:20px 24px;
+  box-shadow:0 12px 40px rgba(0,0,0,.2);
+}
+.about-experience .num{font-family:var(--serif);font-size:2rem;font-weight:400;line-height:1}
+.about-experience .lbl{font-size:0.7rem;color:rgba(255,255,255,.6);margin-top:4px;letter-spacing:0.04em;text-transform:uppercase}
+.eyebrow{
+  font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;
+}
+.eyebrow::before{content:'';width:18px;height:2px;background:var(--accent);border-radius:2px}
+.section-title{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-0.025em;color:var(--ink);margin-bottom:1.5rem}
+.about-text{font-size:0.92rem;color:var(--muted);line-height:1.9;margin-bottom:1rem}
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:2.5rem 0}
+.value-card{
+  border:1px solid var(--border);border-radius:12px;padding:22px;
+  transition:border-color .2s,box-shadow .2s;
+}
+.value-card:hover{border-color:var(--accent);box-shadow:0 4px 16px var(--accent-glow)}
+.value-card h4{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px}
+.value-card p{font-size:0.83rem;color:var(--ink2);line-height:1.6}
+.skills-section{margin-top:2.5rem}
+.skills-label{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--subtle);font-weight:600;margin-bottom:12px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:6px;padding:6px 14px;
+  font-size:0.78rem;color:var(--ink2);font-weight:400;
+  transition:all .2s;letter-spacing:-0.01em;
+}
+.tag:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+
+/* STATS STRIP */
+.stats{padding:4rem 0;background:var(--ink);position:relative;overflow:hidden}
+.stats::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at 30% 50%,rgba(13,107,63,.15),transparent);
+}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative;z-index:1}
+.stat-item{text-align:center;padding:1rem}
+.stat-num{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);color:var(--white);font-weight:400;letter-spacing:-0.03em}
+.stat-label{font-size:0.75rem;color:rgba(255,255,255,.5);margin-top:6px;letter-spacing:0.06em;text-transform:uppercase;font-weight:500}
+
+/* SERVICES */
+.services{padding:7rem 0;background:var(--cream)}
+.srv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:3.5rem}
+.srv-card{background:var(--white);padding:36px 28px;transition:all .3s;position:relative}
+.srv-card:hover{background:var(--surface)}
+.srv-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--accent);transform:scaleX(0);transition:transform .3s;
+}
+.srv-card:hover::before{transform:scaleX(1)}
+.srv-num{font-family:var(--serif);font-size:2.5rem;color:var(--border-light);line-height:1;margin-bottom:24px;font-weight:400;transition:color .3s}
+.srv-card:hover .srv-num{color:var(--accent-light)}
+.srv-name{font-size:0.9rem;font-weight:600;color:var(--ink);margin-bottom:16px;letter-spacing:-0.01em}
+.srv-list{list-style:none}
+.srv-list li{font-size:0.82rem;color:var(--muted);padding:5px 0;display:flex;align-items:center;gap:8px;letter-spacing:-0.01em}
+.srv-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.srv-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  background:var(--ink);color:#fff;
+  font-size:0.67rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;
+  padding:5px 14px;border-radius:20px;margin-top:18px;
+}
+
+/* PORTFOLIO */
+.portfolio{padding:7rem 0}
+.port-header{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem}
+.port-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:24px}
+.project{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:16px;padding:36px;position:relative;
+  transition:all .3s;overflow:hidden;
+}
+.project:hover{border-color:var(--ink3);box-shadow:0 12px 40px rgba(0,0,0,.06)}
+.project.featured{grid-row:span 2}
+.project.featured::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--accent),#4ADE80);
+}
+.proj-badge{
+  display:inline-flex;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:1.5rem;
+}
+.proj-visual{
+  height:140px;border-radius:12px;background:var(--surface);
+  border:1px solid var(--border);margin-bottom:1.5rem;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.proj-visual.dark{background:var(--ink);border-color:var(--ink)}
+.proj-visual.green{background:#14532D;border-color:#14532D}
+.proj-visual svg{opacity:.2}
+.proj-title{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--ink);line-height:1.25;margin-bottom:14px;letter-spacing:-0.02em}
+.project.featured .proj-title{font-size:1.8rem}
+.proj-desc{font-size:0.85rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem}
+.proj-tags{display:flex;gap:6px;flex-wrap:wrap}
+.ptag{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:4px 12px;font-size:0.73rem;color:var(--ink2);letter-spacing:-0.01em}
+.proj-wide{grid-column:1/-1}
+.proj-wide-inner{display:flex;align-items:center;gap:3rem;justify-content:space-between}
+.proj-wide-visual{width:220px;min-height:180px;flex-shrink:0}
+.rflow-charts{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex-shrink:0;width:360px}
+.rflow-chart-img{width:100%;border-radius:10px;border:1px solid var(--border);object-fit:cover;aspect-ratio:4/3;transition:transform .3s}
+.rflow-chart-img:hover{transform:scale(1.03)}
+.proj-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.8rem;font-weight:500;color:var(--accent);
+  text-decoration:none;letter-spacing:-0.01em;
+  transition:gap .2s;
+}
+.proj-link:hover{gap:12px}
+@media(max-width:700px){
+  .proj-wide-inner{flex-direction:column}
+  .proj-wide-visual{width:100%;min-height:120px}
+  .rflow-charts{width:100%}
+}
+
+/* CONTACT */
+.contact{padding:7rem 0;background:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.contact-text{font-size:0.92rem;color:var(--muted);line-height:1.85;margin-bottom:2.5rem;max-width:420px}
+.contact-rows{}
+.c-row{display:flex;align-items:center;gap:16px;padding:1.15rem 0;border-top:1px solid var(--border)}
+.c-row:last-child{border-bottom:1px solid var(--border)}
+.c-icon{
+  width:40px;height:40px;border-radius:10px;
+  border:1px solid var(--border);background:var(--white);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:all .2s;
+}
+.c-row:hover .c-icon{border-color:var(--accent);background:var(--accent-light)}
+.c-label{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--subtle);margin-bottom:3px;font-weight:600}
+.c-val{font-size:0.87rem;color:var(--ink);letter-spacing:-0.01em}
+a.c-val{color:var(--accent);text-decoration:none;transition:color .2s}
+a.c-val:hover{color:var(--ink);text-decoration:underline}
+
+/* FORM */
+.contact-form{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:16px;padding:36px;
+  box-shadow:0 8px 32px rgba(0,0,0,.04);
+}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.cf-field{margin-bottom:20px}
+.cf-label{display:block;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--subtle);font-weight:600;margin-bottom:8px}
+.cf-input{
+  width:100%;background:var(--surface);border:1.5px solid var(--border);
+  border-radius:10px;padding:12px 16px;
+  color:var(--ink);font-family:var(--sans);font-size:0.88rem;
+  outline:none;transition:all .25s;letter-spacing:-0.01em;
+}
+.cf-input:focus{border-color:var(--accent);background:var(--white);box-shadow:0 0 0 3px var(--accent-glow)}
+.cf-input::placeholder{color:var(--subtle)}
+textarea.cf-input{resize:vertical;min-height:130px}
+.cf-submit{
+  width:100%;background:var(--ink);color:#fff;border:none;
+  padding:14px;border-radius:10px;font-family:var(--sans);
+  font-size:0.85rem;font-weight:500;cursor:pointer;
+  letter-spacing:-0.01em;transition:all .25s;
+}
+.cf-submit:hover{background:var(--ink2);transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
+.cf-submit:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
+.cf-submit.sending{background:var(--ink3)}
+.cf-feedback{
+  display:none;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:3rem 2rem;gap:16px;min-height:280px;
+}
+.cf-feedback.visible{display:flex}
+.cf-feedback-icon{
+  width:52px;height:52px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.cf-feedback-icon.success{background:var(--accent-light)}
+.cf-feedback-icon.error{background:#FEF2F2}
+.cf-feedback h4{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--ink);letter-spacing:-0.02em}
+.cf-feedback p{font-size:0.85rem;color:var(--muted);line-height:1.7;max-width:300px}
+.cf-feedback button{
+  margin-top:8px;background:none;border:1px solid var(--border);
+  border-radius:8px;padding:8px 20px;font-family:var(--sans);
+  font-size:0.8rem;color:var(--ink);cursor:pointer;transition:all .2s;
+}
+.cf-feedback button:hover{border-color:var(--ink);background:var(--surface)}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:2.5rem var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+}
+.footer-left{font-size:0.78rem;color:var(--subtle);letter-spacing:-0.01em}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{font-size:0.78rem;color:var(--subtle);text-decoration:none;transition:color .2s;letter-spacing:-0.01em}
+.footer-links a:hover{color:var(--ink)}
+
+/* LANG SWITCHER */
+.lang-switch{display:flex;gap:2px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:2px}
+.lang-switch button{
+  background:none;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:0.72rem;font-weight:500;
+  color:var(--muted);padding:5px 10px;border-radius:6px;
+  transition:all .2s;letter-spacing:0.02em;
+}
+.lang-switch button:hover{color:var(--ink)}
+.lang-switch button.active{background:var(--white);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+
+/* GALLERY */
+.gallery{padding:7rem 0;background:var(--surface)}
+.gallery-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:20px;margin-top:3.5rem;
+}
+.gallery-slot{
+  border-radius:14px;overflow:hidden;
+  background:var(--white);border:1px solid var(--border);
+  transition:all .3s;display:flex;flex-direction:column;
+}
+.gallery-slot:hover{border-color:var(--accent);box-shadow:0 8px 32px rgba(13,107,63,.08);transform:translateY(-2px)}
+.gallery-img{
+  width:100%;aspect-ratio:4/3;object-fit:cover;
+  display:block;
+}
+.gallery-placeholder{
+  width:100%;aspect-ratio:4/3;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  background:var(--cream);border-bottom:1px dashed var(--border);
+  color:var(--subtle);
+}
+.gallery-placeholder svg{opacity:.35}
+.gallery-placeholder span{font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:500}
+.gallery-caption{padding:16px 20px}
+.gallery-caption-title{font-size:0.85rem;font-weight:500;color:var(--ink);margin-bottom:4px;letter-spacing:-0.01em}
+.gallery-caption-label{font-size:0.75rem;color:var(--subtle);letter-spacing:-0.01em}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-grid{grid-template-columns:1fr;gap:3rem}
+  .hero-photo-card{max-width:340px}
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .about-photo-wrap{max-width:360px}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:1rem}
+  .srv-grid{grid-template-columns:1fr 1fr;border-radius:12px}
+  .port-grid{grid-template-columns:1fr}
+  .project.featured{grid-row:auto}
+  .contact-grid{grid-template-columns:1fr;gap:3.5rem}
+  .nav-links{display:none}
+}
+@media(max-width:580px){
+  .srv-grid{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr}
+  .cf-row{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .hero-float-card{position:relative;bottom:auto;left:auto;margin-top:16px}
+  .gallery-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="logo" href="#">Carly Chery</a>
+  <div class="nav-links">
+    <a href="#home" class="active" data-i18n="nav_home">Home</a>
+    <a href="#about" data-i18n="nav_about">About</a>
+    <a href="#services" data-i18n="nav_services">Services</a>
+    <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
+    <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-switch">
+      <button class="active" onclick="setLang('en')">EN</button>
+      <button onclick="setLang('fr')">FR</button>
+      <button onclick="setLang('es')">ES</button>
+    </div>
+    <span class="status-dot" data-i18n="nav_status">Available for work</span>
+    <a class="nav-cta" href="#contact" data-i18n="nav_cta">Get in touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow reveal" data-i18n="hero_eyebrow">Agricultural Engineering &middot; GIS &middot; Precision Agriculture</div>
+        <h1 class="reveal reveal-delay-1" data-i18n="hero_title">Data-driven<br>farming <em>for a</em><br>smarter world.</h1>
+        <p class="hero-desc reveal reveal-delay-2" data-i18n="hero_desc">Using mapping, spatial analysis, and smart technologies to improve farming decisions and productivity across Latin America.</p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a class="btn-primary" href="#portfolio" data-i18n="hero_btn_work">View my work &rarr;</a>
+          <a class="btn-outline" href="#contact" data-i18n="hero_btn_contact">Contact me</a>
+        </div>
+      </div>
+      <div class="hero-photo-card reveal reveal-delay-2">
+        <div class="hero-photo">
+          <img src="Carly.jpeg" alt="Carly Chery"/>
+        </div>
+        <div class="hero-float-card">
+          <div class="hfc-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="hfc-label" data-i18n="hero_based">Based in</div>
+            <div class="hfc-val">Costa Rica</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">QGIS</span>
+    <span class="marquee-item">Spatial Analysis</span>
+    <span class="marquee-item">Precision Agriculture</span>
+    <span class="marquee-item">Crop Management</span>
+    <span class="marquee-item">Soil Evaluation</span>
+    <span class="marquee-item">GIS Mapping</span>
+    <span class="marquee-item">Irrigation Planning</span>
+    <span class="marquee-item">AgriTech</span>
+    <span class="marquee-item">Field Data</span>
+    <span class="marquee-item">Remote Sensing</span>
+    <span class="marquee-item">QGIS</span>
+    <span class="marquee-item">Spatial Analysis</span>
+    <span class="marquee-item">Precision Agriculture</span>
+    <span class="marquee-item">Crop Management</span>
+    <span class="marquee-item">Soil Evaluation</span>
+    <span class="marquee-item">GIS Mapping</span>
+    <span class="marquee-item">Irrigation Planning</span>
+    <span class="marquee-item">AgriTech</span>
+    <span class="marquee-item">Field Data</span>
+    <span class="marquee-item">Remote Sensing</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photo-wrap reveal">
+        <div class="about-photo">
+          <img src="Carly.jpeg" alt="Carly Chery"/>
+        </div>
+        <div class="about-experience">
+          <div class="num">EARTH</div>
+          <div class="lbl">University, CR</div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow reveal" data-i18n="nav_about">About</div>
+        <h2 class="section-title reveal reveal-delay-1" data-i18n="about_title">Where technology<br>meets the field.</h2>
+        <p class="about-text reveal reveal-delay-2" data-i18n="about_p1">My name is Carly Chery, and I am passionate about transforming agriculture through technology. With a background in Agricultural Engineering and growing expertise in GIS and precision agriculture, I bridge the gap between traditional farming and modern digital solutions.</p>
+        <p class="about-text reveal reveal-delay-2" data-i18n="about_p2">I work with field data, crop management, and spatial analysis using QGIS. My goal is to develop innovative systems that help farmers increase productivity while maintaining sustainability — particularly smart crop management platforms for cassava production.</p>
+        <div class="values-grid reveal reveal-delay-3">
+          <div class="value-card">
+            <h4 data-i18n="mission_label">Mission</h4>
+            <p data-i18n="mission_text">Empower farmers with data-driven tools and sustainable agricultural solutions.</p>
+          </div>
+          <div class="value-card">
+            <h4 data-i18n="vision_label">Vision</h4>
+            <p data-i18n="vision_text">Become a leader in AgriTech innovation in Latin America.</p>
+          </div>
+        </div>
+        <div class="skills-section reveal reveal-delay-3">
+          <div class="skills-label" data-i18n="skills_label">Skills &amp; tools</div>
+          <div class="tags">
+            <span class="tag">QGIS</span>
+            <span class="tag">GIS Mapping</span>
+            <span class="tag">Spatial Analysis</span>
+            <span class="tag">Crop Management</span>
+            <span class="tag">Precision Agriculture</span>
+            <span class="tag">Soil Evaluation</span>
+            <span class="tag">Irrigation Planning</span>
+            <span class="tag">Field Data</span>
+            <span class="tag">AgriTech</span>
+          </div>
+        </div>
+        <div class="skills-section reveal reveal-delay-3">
+          <div class="skills-label" data-i18n="languages_label">Languages</div>
+          <div class="tags">
+            <span class="tag" data-i18n="lang_french">French</span>
+            <span class="tag" data-i18n="lang_spanish">Spanish</span>
+            <span class="tag" data-i18n="lang_english">English</span>
+            <span class="tag" data-i18n="lang_creole">Haitian Creole</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num">3+</div>
+        <div class="stat-label" data-i18n="stat_projects">Active Projects</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-num">GIS</div>
+        <div class="stat-label" data-i18n="stat_spec">Specialization</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-num">QGIS</div>
+        <div class="stat-label" data-i18n="stat_tool">Primary Tool</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-num">LATAM</div>
+        <div class="stat-label" data-i18n="stat_region">Regional Focus</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow" data-i18n="srv_eyebrow">Services</div>
+      <h2 class="section-title" data-i18n="srv_title">What I offer.</h2>
+    </div>
+    <div class="srv-grid reveal reveal-delay-1">
+      <div class="srv-card">
+        <div class="srv-num">01</div>
+        <div class="srv-name" data-i18n="srv1_name">Farm Analysis</div>
+        <ul class="srv-list">
+          <li data-i18n="srv1_li1">Soil and crop evaluation</li>
+          <li data-i18n="srv1_li2">Field data interpretation</li>
+          <li data-i18n="srv1_li3">Agronomic recommendations</li>
+        </ul>
+      </div>
+      <div class="srv-card">
+        <div class="srv-num">02</div>
+        <div class="srv-name" data-i18n="srv2_name">GIS Mapping</div>
+        <ul class="srv-list">
+          <li data-i18n="srv2_li1">Farm zoning maps</li>
+          <li data-i18n="srv2_li2">Spatial analysis (QGIS)</li>
+          <li data-i18n="srv2_li3">Land use planning</li>
+          <li data-i18n="srv2_li4">Crop distribution mapping</li>
+        </ul>
+      </div>
+      <div class="srv-card">
+        <div class="srv-num">03</div>
+        <div class="srv-name" data-i18n="srv3_name">Precision Agriculture</div>
+        <ul class="srv-list">
+          <li data-i18n="srv3_li1">Fertilizer recommendations</li>
+          <li data-i18n="srv3_li2">Irrigation planning</li>
+          <li data-i18n="srv3_li3">Crop monitoring</li>
+          <li data-i18n="srv3_li4">Yield optimization</li>
+        </ul>
+      </div>
+      <div class="srv-card">
+        <div class="srv-num">04</div>
+        <div class="srv-name" data-i18n="srv4_name">AgriTech Solutions</div>
+        <ul class="srv-list">
+          <li data-i18n="srv4_li1">Farm management systems</li>
+          <li data-i18n="srv4_li2">Digital tools for farmers</li>
+          <li data-i18n="srv4_li3">Smart crop platforms</li>
+        </ul>
+        <div class="srv-badge" data-i18n="srv_coming">Coming soon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="wrap">
+    <div class="port-header reveal">
+      <div>
+        <div class="eyebrow" data-i18n="port_eyebrow">Portfolio</div>
+        <h2 class="section-title" data-i18n="port_title">Selected work.</h2>
+      </div>
+    </div>
+    <div class="port-grid">
+
+      <!-- Featured project -->
+      <div class="project featured reveal">
+        <div class="proj-badge">AgriTech &middot; Smart Systems &middot; Main Project</div>
+        <div class="proj-visual dark">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.7"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <h3 class="proj-title" data-i18n="proj1_title">Cassava Smart<br>Management System</h3>
+        <p class="proj-desc" data-i18n="proj1_desc">A smart system integrating agronomic data, weather information, and market prices to provide recommendations on fertilizers, pest control, and profitability. Built to scale cassava production across Latin America through data and automation.</p>
+        <div class="proj-tags">
+          <span class="ptag">Data Integration</span>
+          <span class="ptag">Weather API</span>
+          <span class="ptag">Automation</span>
+          <span class="ptag">Market Analysis</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <!-- Project 2 -->
+        <div class="project reveal reveal-delay-1">
+          <div class="proj-badge">GIS &middot; Spatial</div>
+          <div class="proj-visual">
+            <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+          </div>
+          <h3 class="proj-title" data-i18n="proj2_title">Farm Mapping<br>with QGIS</h3>
+          <p class="proj-desc" data-i18n="proj2_desc">Spatial map of a farm including soil zones and crop distribution to support better decision-making and land use planning.</p>
+          <div class="proj-tags">
+            <span class="ptag">QGIS</span>
+            <span class="ptag">Soil Zoning</span>
+            <span class="ptag">Land Use</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project reveal reveal-delay-2">
+          <div class="proj-badge">Agronomy &middot; Data Analysis</div>
+          <div class="proj-visual green">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.8"><path d="M12 22V12M12 12C12 7 7 3 2 3c0 5 4 9 10 9M12 12c0-5 5-9 10-9-1 5-5 9-10 9"/></svg>
+          </div>
+          <h3 class="proj-title" data-i18n="proj3_title">Crop Performance Analysis</h3>
+          <p class="proj-desc" data-i18n="proj3_desc">Analyzed crop performance based on environmental and soil data to generate targeted agronomic recommendations.</p>
+          <div class="proj-tags">
+            <span class="ptag">Field Data</span>
+            <span class="ptag">Soil Analysis</span>
+            <span class="ptag">Agronomy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RflowLabs — full-width card -->
+      <div class="project proj-wide reveal reveal-delay-1">
+        <div class="proj-wide-inner">
+          <div>
+            <div class="proj-badge">AI &middot; R &middot; AgriTech &middot; Open Source</div>
+            <h3 class="proj-title" data-i18n="proj4_title">Rflow<em>Labs</em></h3>
+            <p class="proj-desc" data-i18n="proj4_desc">Professional AI coding assistant embedded in RStudio, powered by Claude Sonnet. Features 1,730+ expert prompts, real-time streaming, and a dedicated Agricultural Analytics module with Random Forest models for soil fertility, crop disease, and yield optimization.</p>
+            <div class="proj-tags" style="margin-bottom:1.5rem">
+              <span class="ptag">Claude AI</span>
+              <span class="ptag">R / RStudio</span>
+              <span class="ptag">Random Forest</span>
+              <span class="ptag">Soil Analysis</span>
+              <span class="ptag">ggplot2</span>
+              <span class="ptag">SQLite</span>
+              <span class="ptag">Open Source</span>
+            </div>
+            <a class="proj-link" href="https://github.com/carlychery2001/RflowLabs" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              View on GitHub &rarr;
+            </a>
+          </div>
+          <div class="rflow-charts">
+            <img src="rflow-anova.jpeg" alt="ANOVA analysis generated by RflowLabs" class="rflow-chart-img"/>
+            <img src="rflow-correlation.jpeg" alt="Pairwise correlation matrix generated by RflowLabs" class="rflow-chart-img"/>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow" data-i18n="gallery_eyebrow">Gallery</div>
+      <h2 class="section-title" data-i18n="gallery_title">Work in the field.</h2>
+    </div>
+    <div class="gallery-grid">
+
+      <!-- Tractor / farm field -->
+      <div class="gallery-slot reveal reveal-delay-1">
+        <img class="gallery-img" src="work-tractor.jpeg" alt="Carly on a tractor in a farm field"/>
+        <div class="gallery-caption">
+          <div class="gallery-caption-title">Farm Operations</div>
+          <div class="gallery-caption-label">Field work · Costa Rica</div>
+        </div>
+      </div>
+
+      <!-- GPS surveying equipment -->
+      <div class="gallery-slot reveal reveal-delay-1">
+        <img class="gallery-img" src="work-gps.jpeg" alt="Carly with GPS GNSS equipment for topographic surveying"/>
+        <div class="gallery-caption">
+          <div class="gallery-caption-title">GPS Topographic Survey</div>
+          <div class="gallery-caption-label">GNSS equipment · Spatial data collection</div>
+        </div>
+      </div>
+
+      <!-- Field survey team -->
+      <div class="gallery-slot reveal reveal-delay-2">
+        <img class="gallery-img" src="work-field-survey.jpeg" alt="Field survey team working on agricultural land"/>
+        <div class="gallery-caption">
+          <div class="gallery-caption-title">Field Survey</div>
+          <div class="gallery-caption-label">Team · Farm assessment</div>
+        </div>
+      </div>
+
+      <!-- Lecture presentation -->
+      <div class="gallery-slot reveal reveal-delay-2">
+        <img class="gallery-img" src="work-lecture.jpeg" alt="Carly presenting Topografía en la Agricultura"/>
+        <div class="gallery-caption">
+          <div class="gallery-caption-title">Agricultural Topography</div>
+          <div class="gallery-caption-label">Lecture · Academic presentation</div>
+        </div>
+      </div>
+
+      <!-- Teaching students -->
+      <div class="gallery-slot reveal reveal-delay-3">
+        <img class="gallery-img" src="work-teaching.jpeg" alt="Carly teaching agricultural technology to students"/>
+        <div class="gallery-caption">
+          <div class="gallery-caption-title">AgriTech Education</div>
+          <div class="gallery-caption-label">Student training · Digital tools</div>
+        </div>
+      </div>
+
+      <!-- Livestock / animal science -->
+      <div class="gallery-slot reveal reveal-delay-3">
+        <img class="gallery-img" src="work-livestock.jpeg" alt="Carly working with cattle in livestock evaluation"/>
+        <div class="gallery-caption">
+          <div class="gallery-caption-title">Livestock Evaluation</div>
+          <div class="gallery-caption-label">Animal science · Field practice</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow reveal" data-i18n="nav_contact">Contact</div>
+        <h2 class="section-title reveal reveal-delay-1" data-i18n="contact_title">Let's build<br>something together.</h2>
+        <p class="contact-text reveal reveal-delay-2" data-i18n="contact_text">Feel free to reach out for collaborations, consulting opportunities, or to discuss innovative agricultural solutions.</p>
+        <div class="contact-rows reveal reveal-delay-2">
+          <div class="c-row">
+            <div class="c-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="c-label">Email</div>
+              <a href="mailto:cchery@earth.ac.cr" class="c-val">cchery@earth.ac.cr</a>
+            </div>
+          </div>
+          <div class="c-row">
+            <div class="c-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="c-label">Phone (US)</div>
+              <a href="tel:+13344755352" class="c-val">+1 (334) 475-5352</a>
+            </div>
+          </div>
+          <div class="c-row">
+            <div class="c-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="c-label">Phone (CR)</div>
+              <a href="tel:+50683014323" class="c-val">+506 8301-4323</a>
+            </div>
+          </div>
+          <div class="c-row">
+            <div class="c-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="c-label">Location</div>
+              <span class="c-val">Costa Rica &middot; EARTH University</span>
+            </div>
+          </div>
+          <div class="c-row">
+            <div class="c-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <div class="c-label">LinkedIn</div>
+              <a href="#" class="c-val">linkedin.com/in/carlychery</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="contact-form">
+          <!-- ✉️ Formspree: replace YOUR_FORM_ID with the ID from formspree.io/forms -->
+          <form id="contact-form" action="https://formspree.io/f/meeryylq" method="POST">
+            <input type="hidden" name="_subject" value="New message from carlychery.com"/>
+            <div class="cf-row">
+              <div>
+                <label class="cf-label" data-i18n="cf_first">First name</label>
+                <input class="cf-input" type="text" name="first_name" required data-i18n-ph="cf_first_ph" placeholder="First"/>
+              </div>
+              <div>
+                <label class="cf-label" data-i18n="cf_last">Last name</label>
+                <input class="cf-input" type="text" name="last_name" required data-i18n-ph="cf_last_ph" placeholder="Last"/>
+              </div>
+            </div>
+            <div class="cf-field">
+              <label class="cf-label">Email</label>
+              <input class="cf-input" type="email" name="email" required placeholder="your@email.com"/>
+            </div>
+            <div class="cf-field">
+              <label class="cf-label" data-i18n="cf_subject">Subject</label>
+              <input class="cf-input" type="text" name="subject" data-i18n-ph="cf_subject_ph" placeholder="Collaboration, consulting, project..."/>
+            </div>
+            <div class="cf-field">
+              <label class="cf-label" data-i18n="cf_message">Message</label>
+              <textarea class="cf-input" name="message" required data-i18n-ph="cf_message_ph" placeholder="Tell me how I can help..."></textarea>
+            </div>
+            <button class="cf-submit" type="submit" data-i18n="cf_send">Send message &rarr;</button>
+          </form>
+
+          <!-- Success state -->
+          <div class="cf-feedback" id="cf-success">
+            <div class="cf-feedback-icon success">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h4 data-i18n="cf_ok_title">Message sent!</h4>
+            <p data-i18n="cf_ok_desc">Thanks for reaching out. I'll get back to you as soon as possible.</p>
+            <button onclick="resetForm()" data-i18n="cf_ok_btn">Send another message</button>
+          </div>
+
+          <!-- Error state -->
+          <div class="cf-feedback" id="cf-error">
+            <div class="cf-feedback-icon error">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/><circle cx="12" cy="12" r="9"/></svg>
+            </div>
+            <h4 data-i18n="cf_err_title">Something went wrong</h4>
+            <p data-i18n="cf_err_desc">Please try again or email me directly at <a href="mailto:cchery@earth.ac.cr" style="color:var(--accent)">cchery@earth.ac.cr</a>.</p>
+            <button onclick="resetForm()" data-i18n="cf_err_btn">Try again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-left" data-i18n="footer_copy">&copy; 2025 Carly Chery. All rights reserved.</span>
+  <div class="footer-links">
+    <a href="#about" data-i18n="nav_about">About</a>
+    <a href="#services" data-i18n="nav_services">Services</a>
+    <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
+    <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+// ── i18n translations ──
+const i18n = {
+  en: {
+    nav_home: "Home", nav_about: "About", nav_services: "Services", nav_portfolio: "Portfolio", nav_gallery: "Gallery", nav_contact: "Contact",
+    nav_status: "Available for work", nav_cta: "Get in touch",
+    hero_eyebrow: "Agricultural Engineering &middot; GIS &middot; Precision Agriculture",
+    hero_title: 'Data-driven<br>farming <em>for a</em><br>smarter world.',
+    hero_desc: "Using mapping, spatial analysis, and smart technologies to improve farming decisions and productivity across Latin America.",
+    hero_btn_work: "View my work &rarr;", hero_btn_contact: "Contact me",
+    hero_based: "Based in",
+    about_title: "Where technology<br>meets the field.",
+    about_p1: "My name is Carly Chery, and I am passionate about transforming agriculture through technology. With a background in Agricultural Engineering and growing expertise in GIS and precision agriculture, I bridge the gap between traditional farming and modern digital solutions.",
+    about_p2: "I work with field data, crop management, and spatial analysis using QGIS. My goal is to develop innovative systems that help farmers increase productivity while maintaining sustainability \u2014 particularly smart crop management platforms for cassava production.",
+    mission_label: "Mission", mission_text: "Empower farmers with data-driven tools and sustainable agricultural solutions.",
+    vision_label: "Vision", vision_text: "Become a leader in AgriTech innovation in Latin America.",
+    skills_label: "Skills &amp; tools", languages_label: "Languages",
+    lang_french: "French", lang_spanish: "Spanish", lang_english: "English", lang_creole: "Haitian Creole",
+    stat_projects: "Active Projects", stat_spec: "Specialization", stat_tool: "Primary Tool", stat_region: "Regional Focus",
+    srv_eyebrow: "Services", srv_title: "What I offer.",
+    srv1_name: "Farm Analysis", srv1_li1: "Soil and crop evaluation", srv1_li2: "Field data interpretation", srv1_li3: "Agronomic recommendations",
+    srv2_name: "GIS Mapping", srv2_li1: "Farm zoning maps", srv2_li2: "Spatial analysis (QGIS)", srv2_li3: "Land use planning", srv2_li4: "Crop distribution mapping",
+    srv3_name: "Precision Agriculture", srv3_li1: "Fertilizer recommendations", srv3_li2: "Irrigation planning", srv3_li3: "Crop monitoring", srv3_li4: "Yield optimization",
+    srv4_name: "AgriTech Solutions", srv4_li1: "Farm management systems", srv4_li2: "Digital tools for farmers", srv4_li3: "Smart crop platforms", srv_coming: "Coming soon",
+    port_eyebrow: "Portfolio", port_title: "Selected work.",
+    gallery_eyebrow: "Gallery", gallery_title: "Work in the field.",
+    proj1_title: "Cassava Smart<br>Management System", proj1_desc: "A smart system integrating agronomic data, weather information, and market prices to provide recommendations on fertilizers, pest control, and profitability. Built to scale cassava production across Latin America through data and automation.",
+    proj2_title: "Farm Mapping<br>with QGIS", proj2_desc: "Spatial map of a farm including soil zones and crop distribution to support better decision-making and land use planning.",
+    proj3_title: "Crop Performance Analysis", proj3_desc: "Analyzed crop performance based on environmental and soil data to generate targeted agronomic recommendations.",
+    proj4_title: "Rflow<em>Labs</em>", proj4_desc: "Professional AI coding assistant embedded in RStudio, powered by Claude Sonnet. Features 1,730+ expert prompts, real-time streaming, and a dedicated Agricultural Analytics module with Random Forest models for soil fertility, crop disease, and yield optimization.",
+    contact_title: "Let's build<br>something together.", contact_text: "Feel free to reach out for collaborations, consulting opportunities, or to discuss innovative agricultural solutions.",
+    cf_first: "First name", cf_first_ph: "First", cf_last: "Last name", cf_last_ph: "Last",
+    cf_subject: "Subject", cf_subject_ph: "Collaboration, consulting, project...",
+    cf_message: "Message", cf_message_ph: "Tell me how I can help...", cf_send: "Send message &rarr;",
+    cf_ok_title: "Message sent!", cf_ok_desc: "Thanks for reaching out. I\u2019ll get back to you as soon as possible.", cf_ok_btn: "Send another message",
+    cf_err_title: "Something went wrong", cf_err_desc: "Please try again or email me directly at <a href=\"mailto:cchery@earth.ac.cr\" style=\"color:var(--accent)\">cchery@earth.ac.cr</a>.", cf_err_btn: "Try again",
+    footer_copy: "&copy; 2025 Carly Chery. All rights reserved."
+  },
+  fr: {
+    nav_home: "Accueil", nav_about: "\u00C0 propos", nav_services: "Services", nav_portfolio: "Portfolio", nav_gallery: "Galerie", nav_contact: "Contact",
+    nav_status: "Disponible", nav_cta: "Me contacter",
+    hero_eyebrow: "G\u00e9nie Agricole &middot; SIG &middot; Agriculture de Pr\u00e9cision",
+    hero_title: 'Une agriculture<br>intelligente <em>pour un</em><br>monde meilleur.',
+    hero_desc: "Utilisation de la cartographie, de l\u2019analyse spatiale et des technologies intelligentes pour am\u00e9liorer les d\u00e9cisions agricoles et la productivit\u00e9 en Am\u00e9rique latine.",
+    hero_btn_work: "Voir mes projets &rarr;", hero_btn_contact: "Me contacter",
+    hero_based: "Bas\u00e9 \u00e0",
+    about_title: "L\u00e0 o\u00f9 la technologie<br>rencontre le terrain.",
+    about_p1: "Je m\u2019appelle Carly Chery et je suis passionn\u00e9 par la transformation de l\u2019agriculture gr\u00e2ce \u00e0 la technologie. Avec une formation en g\u00e9nie agricole et une expertise croissante en SIG et en agriculture de pr\u00e9cision, je fais le lien entre l\u2019agriculture traditionnelle et les solutions num\u00e9riques modernes.",
+    about_p2: "Je travaille avec des donn\u00e9es de terrain, la gestion des cultures et l\u2019analyse spatiale avec QGIS. Mon objectif est de d\u00e9velopper des syst\u00e8mes innovants qui aident les agriculteurs \u00e0 augmenter leur productivit\u00e9 tout en maintenant la durabilit\u00e9 \u2014 notamment des plateformes intelligentes de gestion du manioc.",
+    mission_label: "Mission", mission_text: "Donner aux agriculteurs les moyens d\u2019agir gr\u00e2ce \u00e0 des outils bas\u00e9s sur les donn\u00e9es et des solutions agricoles durables.",
+    vision_label: "Vision", vision_text: "Devenir un leader de l\u2019innovation AgriTech en Am\u00e9rique latine.",
+    skills_label: "Comp\u00e9tences &amp; outils", languages_label: "Langues",
+    lang_french: "Fran\u00e7ais", lang_spanish: "Espagnol", lang_english: "Anglais", lang_creole: "Cr\u00e9ole ha\u00eftien",
+    stat_projects: "Projets actifs", stat_spec: "Sp\u00e9cialisation", stat_tool: "Outil principal", stat_region: "Focus r\u00e9gional",
+    srv_eyebrow: "Services", srv_title: "Ce que je propose.",
+    srv1_name: "Analyse agricole", srv1_li1: "\u00c9valuation des sols et cultures", srv1_li2: "Interpr\u00e9tation des donn\u00e9es", srv1_li3: "Recommandations agronomiques",
+    srv2_name: "Cartographie SIG", srv2_li1: "Cartes de zonage", srv2_li2: "Analyse spatiale (QGIS)", srv2_li3: "Planification de l\u2019utilisation des terres", srv2_li4: "Cartographie de distribution des cultures",
+    srv3_name: "Agriculture de pr\u00e9cision", srv3_li1: "Recommandations d\u2019engrais", srv3_li2: "Planification d\u2019irrigation", srv3_li3: "Suivi des cultures", srv3_li4: "Optimisation des rendements",
+    srv4_name: "Solutions AgriTech", srv4_li1: "Syst\u00e8mes de gestion agricole", srv4_li2: "Outils num\u00e9riques pour agriculteurs", srv4_li3: "Plateformes de cultures intelligentes", srv_coming: "Bient\u00f4t disponible",
+    port_eyebrow: "Portfolio", port_title: "Travaux s\u00e9lectionn\u00e9s.",
+    gallery_eyebrow: "Galerie", gallery_title: "Le travail sur le terrain.",
+    proj1_title: "Syst\u00e8me intelligent de<br>gestion du manioc", proj1_desc: "Un syst\u00e8me intelligent int\u00e9grant des donn\u00e9es agronomiques, m\u00e9t\u00e9orologiques et de march\u00e9 pour fournir des recommandations sur les engrais, la lutte antiparasitaire et la rentabilit\u00e9. Con\u00e7u pour d\u00e9velopper la production de manioc en Am\u00e9rique latine.",
+    proj2_title: "Cartographie agricole<br>avec QGIS", proj2_desc: "Carte spatiale d\u2019une exploitation comprenant les zones de sol et la distribution des cultures pour une meilleure prise de d\u00e9cision.",
+    proj3_title: "Analyse de performance des cultures", proj3_desc: "Analyse de la performance des cultures bas\u00e9e sur les donn\u00e9es environnementales et p\u00e9dologiques pour g\u00e9n\u00e9rer des recommandations agronomiques cibl\u00e9es.",
+    proj4_title: "Rflow<em>Labs</em>", proj4_desc: "Assistant de codage IA professionnel int\u00e9gr\u00e9 dans RStudio, aliment\u00e9 par Claude Sonnet. Plus de 1\u00a0730 prompts experts, streaming en temps r\u00e9el et un module d\u2019analyse agricole avec des mod\u00e8les Random Forest pour la fertilit\u00e9 des sols, les maladies des cultures et l\u2019optimisation des rendements.",
+    contact_title: "Construisons<br>quelque chose ensemble.", contact_text: "N\u2019h\u00e9sitez pas \u00e0 me contacter pour des collaborations, des opportunit\u00e9s de conseil ou pour discuter de solutions agricoles innovantes.",
+    cf_first: "Pr\u00e9nom", cf_first_ph: "Pr\u00e9nom", cf_last: "Nom", cf_last_ph: "Nom",
+    cf_subject: "Sujet", cf_subject_ph: "Collaboration, conseil, projet...",
+    cf_message: "Message", cf_message_ph: "Dites-moi comment je peux vous aider...", cf_send: "Envoyer le message &rarr;",
+    cf_ok_title: "Message envoy\u00e9\u00a0!", cf_ok_desc: "Merci de m\u2019avoir contact\u00e9. Je vous r\u00e9pondrai dans les plus brefs d\u00e9lais.", cf_ok_btn: "Envoyer un autre message",
+    cf_err_title: "Une erreur s\u2019est produite", cf_err_desc: "Veuillez r\u00e9essayer ou m\u2019\u00e9crire directement \u00e0 <a href=\"mailto:cchery@earth.ac.cr\" style=\"color:var(--accent)\">cchery@earth.ac.cr</a>.", cf_err_btn: "R\u00e9essayer",
+    footer_copy: "&copy; 2025 Carly Chery. Tous droits r\u00e9serv\u00e9s."
+  },
+  es: {
+    nav_home: "Inicio", nav_about: "Acerca de", nav_services: "Servicios", nav_portfolio: "Portafolio", nav_gallery: "Galer\u00eda", nav_contact: "Contacto",
+    nav_status: "Disponible", nav_cta: "Cont\u00e1ctame",
+    hero_eyebrow: "Ingenier\u00eda Agr\u00edcola &middot; SIG &middot; Agricultura de Precisi\u00f3n",
+    hero_title: 'Agricultura<br>inteligente <em>para un</em><br>mundo mejor.',
+    hero_desc: "Utilizando cartograf\u00eda, an\u00e1lisis espacial y tecnolog\u00edas inteligentes para mejorar las decisiones agr\u00edcolas y la productividad en Am\u00e9rica Latina.",
+    hero_btn_work: "Ver mi trabajo &rarr;", hero_btn_contact: "Cont\u00e1ctame",
+    hero_based: "Ubicado en",
+    about_title: "Donde la tecnolog\u00eda<br>se encuentra con el campo.",
+    about_p1: "Mi nombre es Carly Chery y me apasiona transformar la agricultura a trav\u00e9s de la tecnolog\u00eda. Con formaci\u00f3n en Ingenier\u00eda Agr\u00edcola y creciente experiencia en SIG y agricultura de precisi\u00f3n, conecto la agricultura tradicional con soluciones digitales modernas.",
+    about_p2: "Trabajo con datos de campo, manejo de cultivos y an\u00e1lisis espacial usando QGIS. Mi objetivo es desarrollar sistemas innovadores que ayuden a los agricultores a aumentar la productividad manteniendo la sostenibilidad \u2014 especialmente plataformas inteligentes de gesti\u00f3n de yuca.",
+    mission_label: "Misi\u00f3n", mission_text: "Empoderar a los agricultores con herramientas basadas en datos y soluciones agr\u00edcolas sostenibles.",
+    vision_label: "Visi\u00f3n", vision_text: "Convertirme en un l\u00edder en innovaci\u00f3n AgriTech en Am\u00e9rica Latina.",
+    skills_label: "Habilidades &amp; herramientas", languages_label: "Idiomas",
+    lang_french: "Franc\u00e9s", lang_spanish: "Espa\u00f1ol", lang_english: "Ingl\u00e9s", lang_creole: "Criollo haitiano",
+    stat_projects: "Proyectos activos", stat_spec: "Especializaci\u00f3n", stat_tool: "Herramienta principal", stat_region: "Enfoque regional",
+    srv_eyebrow: "Servicios", srv_title: "Lo que ofrezco.",
+    srv1_name: "An\u00e1lisis agr\u00edcola", srv1_li1: "Evaluaci\u00f3n de suelos y cultivos", srv1_li2: "Interpretaci\u00f3n de datos de campo", srv1_li3: "Recomendaciones agron\u00f3micas",
+    srv2_name: "Cartograf\u00eda SIG", srv2_li1: "Mapas de zonificaci\u00f3n", srv2_li2: "An\u00e1lisis espacial (QGIS)", srv2_li3: "Planificaci\u00f3n del uso del suelo", srv2_li4: "Mapeo de distribuci\u00f3n de cultivos",
+    srv3_name: "Agricultura de precisi\u00f3n", srv3_li1: "Recomendaciones de fertilizantes", srv3_li2: "Planificaci\u00f3n de riego", srv3_li3: "Monitoreo de cultivos", srv3_li4: "Optimizaci\u00f3n de rendimiento",
+    srv4_name: "Soluciones AgriTech", srv4_li1: "Sistemas de gesti\u00f3n agr\u00edcola", srv4_li2: "Herramientas digitales para agricultores", srv4_li3: "Plataformas de cultivos inteligentes", srv_coming: "Pr\u00f3ximamente",
+    port_eyebrow: "Portafolio", port_title: "Trabajos seleccionados.",
+    gallery_eyebrow: "Galería", gallery_title: "Trabajo en el campo.",
+    proj1_title: "Sistema inteligente de<br>gesti\u00f3n de yuca", proj1_desc: "Un sistema inteligente que integra datos agron\u00f3micos, informaci\u00f3n meteorol\u00f3gica y precios de mercado para proporcionar recomendaciones sobre fertilizantes, control de plagas y rentabilidad. Dise\u00f1ado para escalar la producci\u00f3n de yuca en Am\u00e9rica Latina.",
+    proj2_title: "Cartograf\u00eda agr\u00edcola<br>con QGIS", proj2_desc: "Mapa espacial de una finca incluyendo zonas de suelo y distribuci\u00f3n de cultivos para apoyar una mejor toma de decisiones.",
+    proj3_title: "An\u00e1lisis de rendimiento de cultivos", proj3_desc: "An\u00e1lisis del rendimiento de cultivos basado en datos ambientales y de suelo para generar recomendaciones agron\u00f3micas espec\u00edficas.",
+    proj4_title: "Rflow<em>Labs</em>", proj4_desc: "Asistente de programaci\u00f3n con IA integrado en RStudio, impulsado por Claude Sonnet. M\u00e1s de 1.730 prompts expertos, streaming en tiempo real y un m\u00f3dulo de anal\u00edtica agr\u00edcola con modelos Random Forest para fertilidad del suelo, enfermedades de cultivos y optimizaci\u00f3n de rendimiento.",
+    contact_title: "Construyamos<br>algo juntos.", contact_text: "No dudes en contactarme para colaboraciones, oportunidades de consultor\u00eda o para discutir soluciones agr\u00edcolas innovadoras.",
+    cf_first: "Nombre", cf_first_ph: "Nombre", cf_last: "Apellido", cf_last_ph: "Apellido",
+    cf_subject: "Asunto", cf_subject_ph: "Colaboraci\u00f3n, consultor\u00eda, proyecto...",
+    cf_message: "Mensaje", cf_message_ph: "Cu\u00e9ntame c\u00f3mo puedo ayudarte...", cf_send: "Enviar mensaje &rarr;",
+    cf_ok_title: "\u00a1Mensaje enviado!", cf_ok_desc: "Gracias por contactarme. Te responder\u00e9 lo antes posible.", cf_ok_btn: "Enviar otro mensaje",
+    cf_err_title: "Algo sali\u00f3 mal", cf_err_desc: "Por favor int\u00e9ntalo de nuevo o escr\u00edbeme directamente a <a href=\"mailto:cchery@earth.ac.cr\" style=\"color:var(--accent)\">cchery@earth.ac.cr</a>.", cf_err_btn: "Intentar de nuevo",
+    footer_copy: "&copy; 2025 Carly Chery. Todos los derechos reservados."
+  }
+};
+
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  const t = i18n[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    if (t[key]) el.placeholder = t[key];
+  });
+  document.querySelectorAll('.lang-switch button').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+  });
+}
+
+// Contact form — Formspree AJAX submission
+const contactForm = document.getElementById('contact-form');
+const cfSuccess = document.getElementById('cf-success');
+const cfError = document.getElementById('cf-error');
+
+function resetForm() {
+  cfSuccess.classList.remove('visible');
+  cfError.classList.remove('visible');
+  contactForm.style.display = '';
+  contactForm.reset();
+}
+
+contactForm.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = contactForm.querySelector('.cf-submit');
+  const t = i18n[currentLang];
+  btn.disabled = true;
+  btn.classList.add('sending');
+  btn.textContent = currentLang === 'fr' ? 'Envoi...' : currentLang === 'es' ? 'Enviando...' : 'Sending...';
+
+  try {
+    const res = await fetch(contactForm.action, {
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      contactForm.style.display = 'none';
+      cfSuccess.classList.add('visible');
+      // apply current language to feedback panel
+      if (t) {
+        cfSuccess.querySelector('h4').innerHTML = t.cf_ok_title || cfSuccess.querySelector('h4').innerHTML;
+        cfSuccess.querySelector('p').innerHTML = t.cf_ok_desc || cfSuccess.querySelector('p').innerHTML;
+        cfSuccess.querySelector('button').innerHTML = t.cf_ok_btn || cfSuccess.querySelector('button').innerHTML;
+      }
+    } else {
+      throw new Error('not ok');
+    }
+  } catch {
+    contactForm.style.display = 'none';
+    cfError.classList.add('visible');
+    if (t) {
+      cfError.querySelector('h4').innerHTML = t.cf_err_title || cfError.querySelector('h4').innerHTML;
+      cfError.querySelector('p').innerHTML = t.cf_err_desc || cfError.querySelector('p').innerHTML;
+      cfError.querySelector('button').innerHTML = t.cf_err_btn || cfError.querySelector('button').innerHTML;
+    }
+  } finally {
+    btn.disabled = false;
+    btn.classList.remove('sending');
+    btn.innerHTML = t ? t.cf_send : 'Send message &rarr;';
+  }
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Nav scroll style
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', scrollY > 10);
+});
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+</script>
+</body>
+</html>
