@@ -6,9 +6,7 @@
 <title>Carly Chery — Agricultural Engineer & GIS Specialist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/><style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   /* — Color system — */
@@ -543,44 +541,6 @@ footer{
 .footer-links a{font-size:0.77rem;color:var(--subtle);text-decoration:none;transition:color var(--t);letter-spacing:-0.01em}
 .footer-links a:hover{color:var(--ink)}
 
-/* ─── MAP ─── */
-.map-section{padding:var(--sec);background:var(--ink);position:relative;overflow:hidden}
-.map-section::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(13,107,63,.12),transparent);
-  pointer-events:none;
-}
-.map-header{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;position:relative;z-index:1}
-.map-eyebrow{
-  font-size:0.71rem;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;
-  color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:1rem;
-}
-.map-eyebrow::before{content:'';width:0;height:2px;background:var(--accent);border-radius:2px;flex-shrink:0;transition:width .6s var(--ease) .35s}
-.map-eyebrow.visible::before{width:18px}
-.map-title{
-  font-family:var(--serif);font-weight:400;
-  font-size:clamp(2rem,4vw,3rem);
-  line-height:1.08;letter-spacing:-0.028em;color:var(--white);
-}
-.map-meta{font-size:0.82rem;color:rgba(255,255,255,.45);letter-spacing:-0.01em;max-width:280px;line-height:1.7}
-.map-wrap{
-  position:relative;z-index:1;
-  border-radius:var(--r-xl);overflow:hidden;
-  border:1px solid rgba(255,255,255,.08);
-  box-shadow:var(--sh-xl);
-  height:420px;
-}
-@media(max-width:600px){.map-wrap{height:300px}}
-.leaflet-container{background:#0d0f14}
-.map-pin-label{
-  background:var(--ink2);color:var(--white);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:var(--r-sm);padding:8px 14px;
-  font-family:var(--sans);font-size:0.78rem;font-weight:500;
-  letter-spacing:-0.01em;box-shadow:var(--sh-lg);
-  white-space:nowrap;
-}
-.map-pin-label strong{color:var(--accent);display:block;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:3px}
 
 /* ─── LANG SWITCHER ─── */
 .lang-switch{display:flex;gap:2px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:2px}
@@ -1148,19 +1108,6 @@ footer{
   </div>
 </section>
 
-<!-- MAP -->
-<section class="map-section">
-  <div class="wrap">
-    <div class="map-header reveal">
-      <div>
-        <div class="map-eyebrow">Location</div>
-        <h2 class="map-title">Where I work.</h2>
-      </div>
-      <p class="map-meta">EARTH University · Guácimo, Limón, Costa Rica. A hub for sustainable agriculture and environmental sciences in Latin America.</p>
-    </div>
-    <div class="map-wrap" id="map"></div>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer>
@@ -1284,51 +1231,6 @@ const i18n = {
   }
 };
 
-// Dark map — Leaflet
-(function initMap() {
-  const script = document.createElement('script');
-  script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
-  script.integrity = 'sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN2GqT1U=';
-  script.crossOrigin = '';
-  script.onload = function() {
-    const lat = 10.2044, lng = -83.5980;
-    const map = L.map('map', {
-      center: [lat, lng], zoom: 14,
-      zoomControl: false, scrollWheelZoom: false,
-      attributionControl: false
-    });
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      maxZoom: 19
-    }).addTo(map);
-    L.control.zoom({ position: 'bottomright' }).addTo(map);
-    L.control.attribution({ position: 'bottomleft', prefix: false })
-      .addAttribution('© <a href="https://carto.com/" style="color:#0D6B3F">CARTO</a>')
-      .addTo(map);
-    // Custom marker
-    const icon = L.divIcon({
-      className: '',
-      html: `<div style="
-        width:14px;height:14px;border-radius:50%;
-        background:var(--accent);border:3px solid #fff;
-        box-shadow:0 0 0 6px rgba(13,107,63,.25),0 4px 16px rgba(13,107,63,.4);
-        animation:pulse 2.5s ease infinite;
-      "></div>`,
-      iconSize: [14, 14], iconAnchor: [7, 7]
-    });
-    const marker = L.marker([lat, lng], { icon }).addTo(map);
-    const popup = L.popup({
-      offset: [0, -14], closeButton: false,
-      className: 'map-popup'
-    }).setContent(`<div class="map-pin-label"><strong>Workplace</strong>EARTH University · Costa Rica</div>`);
-    marker.bindPopup(popup).openPopup();
-    // Enable scroll on click
-    map.on('click', () => map.scrollWheelZoom.enable());
-    map.on('mouseout', () => map.scrollWheelZoom.disable());
-    // Force tile render after container is fully visible
-    setTimeout(() => map.invalidateSize(), 300);
-  };
-  document.head.appendChild(script);
-})();
 
 // Always scroll to top on page load/refresh
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
