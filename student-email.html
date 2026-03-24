@@ -15,24 +15,24 @@
 </head>
 <body>
 <div class="preview-bar">
-  <span>Vista previa del correo — Abre en el navegador o copia el HTML en Outlook / Gmail</span>
+  <span>Vista previa del correo — Haz clic en el botón y pega directamente en Outlook / Gmail</span>
   <button id="copy-btn" onclick="copyHTML()">
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-    <span id="copy-label">Copiar HTML</span>
+    <span id="copy-label">Copiar correo</span>
   </button>
 </div>
 <script>
 function copyHTML(){
   const tbl = document.querySelector('table[width="100%"]');
-  const mso = '<!--[if mso]><center><table width="640" cellpadding="0" cellspacing="0"><tr><td><![endif]-->\n';
-  const msoEnd = '\n<!--[if mso]></td></tr></table></center><![endif]-->';
-  const html = mso + tbl.outerHTML + msoEnd;
-  navigator.clipboard.writeText(html).then(()=>{
+  const htmlContent = tbl.outerHTML;
+  const blob = new Blob([htmlContent], {type: 'text/html'});
+  const item = new ClipboardItem({'text/html': blob});
+  navigator.clipboard.write([item]).then(()=>{
     const btn = document.getElementById('copy-btn');
     const lbl = document.getElementById('copy-label');
     btn.classList.add('copied');
     lbl.textContent = '¡Copiado!';
-    setTimeout(()=>{ btn.classList.remove('copied'); lbl.textContent='Copiar HTML'; }, 2200);
+    setTimeout(()=>{ btn.classList.remove('copied'); lbl.textContent='Copiar correo'; }, 2200);
   });
 }
 </script>
