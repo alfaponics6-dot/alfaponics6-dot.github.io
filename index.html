@@ -1343,26 +1343,6 @@ window.addEventListener('scroll', () => {
   backTop.classList.toggle('visible', scrollY > 500);
 }, { passive: true });
 
-// ── TEXT SCRAMBLE on hero eyebrow ──
-function scramble(el) {
-  const original = el.textContent;
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ·— ';
-  let i = 0;
-  const interval = setInterval(() => {
-    el.textContent = original.split('').map((c, idx) => {
-      if (c === ' ') return ' ';
-      if (idx < i) return c;
-      return chars[Math.floor(Math.random() * chars.length)];
-    }).join('');
-    if (i >= original.length) { el.textContent = original; clearInterval(interval); }
-    i += 0.4;
-  }, 28);
-}
-const heroEyebrow = document.querySelector('.hero-eyebrow');
-const scrObs = new IntersectionObserver(([e]) => {
-  if (e.isIntersecting) { setTimeout(() => scramble(heroEyebrow), 400); scrObs.disconnect(); }
-}, { threshold: 0.5 });
-scrObs.observe(heroEyebrow);
 
 // ── STAT COUNTER ──
 function countUp(el) {
