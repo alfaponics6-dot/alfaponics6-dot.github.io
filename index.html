@@ -148,9 +148,10 @@ nav.scrolled{border-bottom-color:var(--border);background:rgba(255,255,255,.97)}
   background:var(--ink);color:var(--white);
   font-size:0.82rem;font-weight:500;padding:10px 22px;
   border-radius:var(--r-sm);text-decoration:none;
-  transition:background var(--t);letter-spacing:-0.01em;
+  transition:all var(--t);letter-spacing:-0.01em;
+  display:inline-flex;align-items:center;
 }
-.mobile-menu-cta:hover{background:var(--ink2)}
+.mobile-menu-cta:hover{background:var(--accent);transform:translateY(-1px);box-shadow:var(--sh-md)}
 
 /* ─── LAYOUT ─── */
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
@@ -525,6 +526,9 @@ footer{
   .contact-grid{grid-template-columns:1fr;gap:3.5rem}
   .nav-links{display:none}
   .hamburger{display:flex}
+  .nav-cta{display:none}
+  .nav-right .lang-switch{display:none}
+  .status-dot{display:none}
   .proj-wide-inner{flex-direction:column}
   .rflow-charts{width:100%}
   .proj-wide-visual{width:100%;min-height:auto}
@@ -545,7 +549,7 @@ footer{
 @media(max-width:480px){
   :root{--sec:3.5rem 0;--nav-h:60px}
   .nav-cta{display:none}
-  .lang-switch{display:none}
+  .nav-right .lang-switch{display:none}
   .hero{padding:calc(var(--nav-h) + 3rem) 0 4rem}
   .hero h1{font-size:clamp(2.4rem,9.5vw,5.2rem)}
   .section-title{font-size:clamp(1.8rem,7.5vw,3.1rem)}
