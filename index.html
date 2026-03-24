@@ -169,8 +169,7 @@ section{position:relative}
 /* ─── EYEBROW LINE DRAW ─── */
 .eyebrow::before{width:0;transition:width .6s var(--ease) .35s}
 .eyebrow.visible::before{width:18px}
-.hero-eyebrow::before{width:0;transition:width .7s var(--ease) .55s}
-.hero-eyebrow.visible::before{width:22px}
+.hero-eyebrow::before{width:22px}
 
 /* ─── FLOAT ─── */
 @keyframes float{
@@ -720,7 +719,7 @@ footer{
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="hero-eyebrow reveal" data-i18n="hero_eyebrow">Agricultural Engineering &middot; GIS &middot; Precision Agriculture</div>
+        <div class="hero-eyebrow" data-i18n="hero_eyebrow">Agricultural Engineering &middot; GIS &middot; Precision Agriculture</div>
         <h1 class="reveal reveal-delay-1" data-i18n="hero_title">Data-driven<br>farming <em>for a</em><br>smarter world.</h1>
         <p class="hero-desc reveal reveal-delay-2" data-i18n="hero_desc">Using mapping, spatial analysis, and smart technologies to improve farming decisions and productivity across Latin America.</p>
         <div class="hero-actions reveal reveal-delay-3">
@@ -1344,26 +1343,6 @@ window.addEventListener('scroll', () => {
   backTop.classList.toggle('visible', scrollY > 500);
 }, { passive: true });
 
-// ── TEXT SCRAMBLE on hero eyebrow ──
-function scramble(el) {
-  const original = el.textContent;
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ·— ';
-  let i = 0;
-  const interval = setInterval(() => {
-    el.textContent = original.split('').map((c, idx) => {
-      if (c === ' ') return ' ';
-      if (idx < i) return c;
-      return chars[Math.floor(Math.random() * chars.length)];
-    }).join('');
-    if (i >= original.length) { el.textContent = original; clearInterval(interval); }
-    i += 0.4;
-  }, 28);
-}
-const heroEyebrow = document.querySelector('.hero-eyebrow');
-const scrObs = new IntersectionObserver(([e]) => {
-  if (e.isIntersecting) { setTimeout(() => scramble(heroEyebrow), 400); scrObs.disconnect(); }
-}, { threshold: 0.5 });
-scrObs.observe(heroEyebrow);
 
 // ── STAT COUNTER ──
 function countUp(el) {
